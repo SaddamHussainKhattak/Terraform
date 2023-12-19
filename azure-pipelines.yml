@@ -1,0 +1,36 @@
+trigger:
+- test
+
+pool:
+  vmImage: 'windows-latest'  # Choose the appropriate image for your needs
+
+stages:
+- stage: Execute_Terraform
+  jobs:
+  - job: Run_Terraform
+    steps:
+    - checkout: self
+
+    # Install Terraform
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'runtime'
+        version: '3.x'
+
+    - powershell: |
+        wget -Uri https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_windows_amd64.zip -OutFile terraform.zip
+        Expand-Archive -Path terraform.zip -DestinationPath $env:USERPROFILE\.terraform.d\plugins -Force
+        Get-ChildItem -Path $env:USERPROFILE\.terraform.d\plugins -Recurse
+      displayName: 'Install Terraform'
+
+    # Run Terraform in subfolders
+    - powershell: |
+        $subfolders = Get-ChildItem -Directory -Path 'global' | Sort-Object Name
+
+        foreach ($subfolder in $subfolders) {
+            Write-Host "Executing Terraform in $($subfolder.FullName)"
+            Set-Location -Path $subfolder.FullName
+            & "$env:USERPROFILE\.terraform.d\plugins\terraform.exe" init
+            & "$env:USERPROFILE\.terraform.d\plugins\terraform.exe" apply -auto-approve
+        }
+      displayName: 'Run Terraform in all subfolders'

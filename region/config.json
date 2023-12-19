@@ -1,0 +1,80 @@
+{
+	"common": {
+		"environment": "",
+		"resource-group-name": "",
+		"region": "eastus2",
+		"tags": {
+			"asset-id": "",
+			"creater-email": "",
+			"creation-date": "",
+			"creator": ""
+		},
+		"remote-state-config" : {
+			"resource_group_name" :  "",
+			"storage_account_name" : "",
+			"container_name"       : ""
+		}
+	},
+
+	"base_network_layer": {
+		"inflate": true,
+		"ddos-protection-plan-id": [],
+		"hub-fw-ip": "",
+		"bgp-route-propagation": false,
+		"ipranges-to-hub-fw": [""],
+		"private-dns-zone-name": "",
+		"enable-dns-zone-vnet-link": true,
+		"enable-dns-zone-registration": true,
+		"network_watcher_name": "",
+		"dns-servers":[],
+		"vnet_gateway" : {
+			"inflate" : false,
+			"gateway_type" : "",
+			"gateway_vpntype" : "",
+			"enable_active_active_gateway" : false,
+			"enable_bgp" : true,
+			"gateway_sku" : ""
+		}
+	},
+	"network_security_group_layer": {
+		"inflate": true
+	},
+	"internet_access_layer": {
+		"inflate": false,
+		"firewall": false
+	},
+	"vnet_peering_layer": {
+		"inflate": true,
+		"hub_subscription_id": "",
+		"hub_vnet_name": "",
+		"hub_resource_group_name": "",
+		"hub_allow_virtual_network_access": true,
+		"hub_allow_forwarded_traffic": true,
+		"hub_use_remote_gateways": false,
+		"hub_allow_gateway_transit": true,
+		"spoke_allow_virtual_network_access": true,
+		"spoke_allow_forwarded_traffic": true,
+		"spoke_use_remote_gateways": true,
+		"spoke_allow_gateway_transit": false
+	},
+
+	"bastion_layer": {
+		"inflate": true,
+		"bastion-host-name": ""
+	},
+	"monitoring_logging_layer": {
+		"inflate": true,
+		"storage_account_name": "",
+		"account_tier": "",
+		"account_kind": "",
+		"account_replication_type": "",
+		"workspace_name": "",
+		"workspace_sku": "",
+		"log_retention_days": "",
+		"flow_logs_enabled": true,
+		"retention_policy_enabled": true,
+		"retention_policy_days": 7,
+		"log_analytics_enabled": true
+	}
+}
+

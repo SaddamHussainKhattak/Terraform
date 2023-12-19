@@ -1,0 +1,83 @@
+{
+	"common": {
+		"environment": "",
+		"resource-group-name": "",
+		"region": "",
+		"tags": {
+			"asset-id": "",
+			"creater-email": "",
+			"creation-date": "",
+			"creator": ""
+		},
+		"remote-state-config" : {
+			"resource_group_name" :  "",
+			"storage_account_name" : "",
+			"container_name"       : ""
+		},
+		"tenant-mapping": {
+			"26894632-fdec-44e5-ba52-40d2c88bd824": "",
+			"62e34c6c-dc45-454e-a495-3898f82103b4": "",
+			"ad089972-97ab-45e6-843c-016117f733bc": ""
+		}
+	},
+
+
+
+	"governance": {
+		"inflate": true,
+		"platform_groups_list": [],
+		"product_groups_list": [],
+		"product_resource_groups": [],
+		"platform_resource_groups":[],
+		"hub_subscription_id" :""
+
+	},
+
+
+	"public-dns": {
+		"inflate": false,
+		"public-dns-zone-name": "",
+		"tenant": ""
+	},
+
+	"private-dns": {
+		"inflate": true,
+		"private-dns-zone-name": ""
+	},
+	
+	"private-dnss": {
+		"inflate": true,
+		"private-dns-zone-name": ""
+	},
+	
+	"private-dnsss": {
+		"inflate": true,
+		"private-dns-zone-name": ""
+	},
+	
+	"private-dnssss": {
+		"inflate": true,
+		"private-dns-zone-name": ""
+	},
+	
+	"private-dnsssss": {
+		"inflate": true,
+		"private-dns-zone-name": ""
+	},
+
+
+	"global-monitoring": {
+		"inflate": true,
+		"prisma_ag_short_name":"",
+		"prisma_ag_email_receiver":{
+			"EmailPrismaTeam":{        
+				"email_address":""
+				}
+			}
+	},
+
+	"ddos-protection": {
+		"inflate": false
+	}
+}
+
